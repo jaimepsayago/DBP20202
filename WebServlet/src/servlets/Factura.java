@@ -55,7 +55,7 @@ public class Factura extends HttpServlet {
 		out.print(sb.toString());
 		out.flush();
 		
-		//ejemplo
+		//ejemplo de github
 		
 		
 		
