@@ -71,5 +71,8 @@ if("POST".equals(metodo)){
 	<%
 	}
 	%>
+	</tbody>
+	</table>
+	
 </body>
 </html>
