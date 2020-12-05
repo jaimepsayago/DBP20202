@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#personas.xhtml" PATH="/personas.xhtml"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#personas.xhtml:0" NAME="item"
+   PATH="/personas.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="registrarPersona::#persona.xhtml"
+    NAME="output" PATH="/persona.xhtml" TARGET="rules:#persona.xhtml"
+    TITLE="registrarPersona" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#persona.xhtml" PATH="/persona.xhtml"
+  SHAPE="256,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#persona.xhtml:0" NAME="item"
+   PATH="/persona.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="registrado::#personas.xhtml" NAME="output"
+    PATH="/personas.xhtml" TARGET="rules:#personas.xhtml"
+    TITLE="registrado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>
