@@ -12,17 +12,75 @@
 	</h:head>
 	<h:body>
 	<h:form>
-	<ul>
+	<!-- <ul>
 	<ui:repeat var="persona" value="#{personasController.personas}">
 		<li>
 				<h:outputText value="#{persona}" />
 		</li>
 	</ui:repeat>
-	</ul>
+	</ul> -->
+	
+	<p:dataTable var="car" value="#{personasController.personas}">
+    <p:column headerText="Id">
+        <h:outputText value="#{car.identificacion}" />
+    </p:column>
+ 
+    <p:column headerText="nombre">
+        <h:outputText value="#{car.nombre}" />
+    </p:column>
+ 
+    <p:column headerText="direccion">
+        <h:outputText value="#{car.direccion}" />
+    </p:column>
+ 
+    <p:column headerText="telefono">
+        <h:outputText value="#{car.telefono}" />
+    </p:column>
+    
+     <p:column headerText="edad">
+        <h:outputText value="#{car.edad}" />
+    </p:column>
+</p:dataTable>
+
+
 	</h:form>
 	
 	<br></br>
 	<p:linkButton outcome="registrarPersona" value="Registrar2" style="margin-right:20px;"/>
+	
+	
+	<h:form id="form">
+    <p:growl id="msgs" showDetail="true"/>
+ 
+    <p:dataTable id="cars1" var="car" value="#{personasController.personas}" editable="true" style="margin-bottom:20px">
+        <f:facet name="header">
+            Row Editing
+        </f:facet>
+ 
+        <p:ajax event="rowEdit" listener="#{personasController.onRowEdit}" update=":form:msgs" />
+        <p:ajax event="rowEditCancel" listener="#{personasController.onRowCancel}" update=":form:msgs" />
+ 
+        <p:column headerText="Id">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{car.identificacion}" /></f:facet>
+                <f:facet name="input"><p:inputText id="modelInput" value="#{car.identificacion}" style="width:100%"/></f:facet>
+            </p:cellEditor>
+        </p:column>
+ 
+        <p:column headerText="nombre">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{car.nombre}" /></f:facet>
+                <f:facet name="input"><p:inputText value="#{car.nombre}" style="width:100%" label="Year"/></f:facet>
+            </p:cellEditor>
+        </p:column>
+        
+		
+        <p:column style="width:35px">
+            <p:rowEditor />
+        </p:column>
+    </p:dataTable>
+    
+    </h:form>
 		
 </h:body>
 </html>
