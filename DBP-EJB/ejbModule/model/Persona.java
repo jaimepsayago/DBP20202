@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @NamedQuery(name="Persona.findAll", query="SELECT p FROM Persona p")
-public class Persona implements Serializable {
+public class Persona implements AbstractEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Id

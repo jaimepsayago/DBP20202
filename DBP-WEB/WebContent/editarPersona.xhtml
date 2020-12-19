@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/layout/template.xhtml">
+	<ui:define name="pageTitle">
+		<h:outputText value="Editar" />
+	</ui:define>
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{personaController.idSelecionado}" />
+		<f:event type="preRenderView" listener="#{personaController.editar}" />
+	</f:metadata>
+
+	<ui:define name="content">
+		<ui:include src="agregarPersona.xhtml">
+			<ui:param name="subtitle" value="Editar" />
+		</ui:include>
+	</ui:define>
+</ui:composition>
+</html>

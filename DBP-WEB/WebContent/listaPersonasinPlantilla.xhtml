@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>Listar Persona</h:head> 
+<body> 
+
+	<h:form>
+	<p:dataTable id="dataTable" var="u"
+				value="#{personaController.lista}" paginator="true" rows="5"
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15">
+				<p:column>
+					<f:facet name="header">#</f:facet>
+					<h:outputText value="#{u.id}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">#</f:facet>
+					<h:outputText value="#{u.nombre}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">#</f:facet>
+					<h:outputText value="#{u.apellido}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">#</f:facet>
+					<h:outputText value="#{u.ciudad}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">#</f:facet>
+					<h:outputText value="#{u.direccion}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">#</f:facet>
+					<h:outputText value="#{u.edad}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">#</f:facet>
+					<h:outputText value="#{u.telefono}" />
+				</p:column>
+	</p:dataTable>	
+	</h:form>
+</body> 
+</html>

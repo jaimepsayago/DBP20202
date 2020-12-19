@@ -1,0 +1,93 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/layout/template.xhtml">
+	<ui:define name="pageTitle"> 
+	<h:outputText value="Persona"/>
+	
+	</ui:define>
+
+	<ui:define name="content">
+		<div style="border-bottom: 1px solid #E5E5E5;">
+			<h3>
+				<h:outputText value="Persona"/>
+				</h3>
+		</div>
+	<h:form>
+	<p:dataTable id="dataTable" var="u"
+				value="#{personaController.lista}" paginator="true" rows="5"
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15">
+				<p:column>
+					<f:facet name="header">#</f:facet>
+					<h:outputText value="#{u.id}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">#</f:facet>
+					<h:outputText value="#{u.nombre}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">#</f:facet>
+					<h:outputText value="#{u.apellido}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">#</f:facet>
+					<h:outputText value="#{u.ciudad}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">#</f:facet>
+					<h:outputText value="#{u.direccion}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">#</f:facet>
+					<h:outputText value="#{u.edad}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">#</f:facet>
+					<h:outputText value="#{u.telefono}" />
+				</p:column>
+				
+				<p:column headerText="Menu" disabledSelection="false" print="false"
+					exportable="false">
+					<p:toolbarGroup align="right">
+						<p:menuButton value="Opciones">
+							<p:menuitem value="Modificar">
+												
+								
+						<h:link outcome="editarPersona" value="Editar"
+							title="Editar #{u.id}">
+							<f:param name="id" value="#{u.id}" />
+							</h:link>
+								
+							
+
+							</p:menuitem>
+							
+							<p:menuitem value="Eliminar" action="listaPost.jsf"
+								onclick="if (!confirm('Esta seguro de eliminar esta fila?')) return false"
+								actionListener="#{personaController.remover}" update="dataTable"
+								ajax="true" >
+								<f:attribute name="postEliminar" value="#{u.id}">
+								
+								</f:attribute>
+							</p:menuitem>
+							
+							
+
+						</p:menuButton>
+					</p:toolbarGroup>
+					
+				</p:column>
+	
+	
+	
+	</p:dataTable>	
+	</h:form>
+	<h:messages />
+	</ui:define>
+</ui:composition>
+</html>
