@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+      
+<h:head></h:head> 
+<body> 
+
+<h:form>
+    <div class="card">
+        <p:dataTable var="product" value="#{postController.lista}">
+            <p:column headerText="id">
+                <h:outputText value="#{product.id}" />
+            </p:column>
+
+            <p:column headerText="Name">
+                <h:outputText value="#{product.title}" />
+            </p:column>
+
+            
+        </p:dataTable>
+    </div>
+</h:form>
+
+<h:form>
+	<p:dataTable id="dataTable" var="u"
+				value="#{postController.lista}" paginator="true" rows="5"
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15">
+		<p:column style="width:16px">
+            <p:rowToggler />
+        </p:column>
+				<p:column>
+					<f:facet name="header">#</f:facet>
+					<h:outputText value="#{u.id}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">#</f:facet>
+					<h:outputText value="#{u.title}" />
+				</p:column>
+				
+		 <p:rowExpansion>
+	        <p:panelGrid  columns="2" columnClasses="label,value" style="width:300px">
+			     <p:dataList value="#{u.comments}" var="x" type="ordered">
+			        <f:facet name="header">
+			            Basic
+			        </f:facet>
+			        #{x.id}, #{x.review}
+			    </p:dataList>
+			                
+	        	</p:panelGrid>	
+			 </p:rowExpansion>	
+	</p:dataTable>	
+	</h:form>
+
+</body> 
+</html>
